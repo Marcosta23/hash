@@ -1,13 +1,15 @@
 
 var player, winner = null;
 var selectPlayer = document.getElementById('select-player');
-//var squares = document.getElementsByClassName('square');
+var squares = document.getElementsByClassName('square');
 var selectWinner = document.getElementById('winner-player');
+var partidas = 0;
 
 changePlayer('X');
 
 function chooseSquare (id){
 if(winner !== null){
+   
     return
 }
 
@@ -98,7 +100,10 @@ function checked(){
 function changeWinner(square) {
     winner = square.innerHTML;
     selectWinner.innerHTML= winner;
+    if(winner === 'X'){
+        console.log(winner);
 
+    }
 }
 
 function changeColorSquare(sq1,sq2,sq3){
@@ -118,8 +123,8 @@ function checkSeq(sq1, sq2, sq3) {
 }
 
 function reStart(){
-    console.log("passei2")
-    winner = null;
+    partidas++;
+       winner = null;
     selectWinner.innerHTML = '';
 
     for (var i = 1; i <= 9; i++) {
@@ -127,8 +132,15 @@ function reStart(){
         square.style.background = '#eee';
         square.style.color = '#eee';
         square.innerHTML = '-';
-        console.log("passei1")
+        
     }
+  
+   console.log("partidas " + partidas)
+if (partidas%2 === 0){
 
     changePlayer('X');
+}else{
+console.log("xau")
+    
+}
 }

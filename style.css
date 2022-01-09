@@ -25,3 +25,16 @@ button {
   background: #eee;
   cursor: pointer;
 }
+.playerX {
+  position: absolute;
+  bottom: 200px;
+  color: green;
+  font-size: 25px;
+}
+.playerO {
+  position: absolute;
+  bottom: 200px;
+  right: 10px;
+  color: blue;
+  font-size: 25px;
+}

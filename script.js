@@ -4,6 +4,8 @@ var selectPlayer = document.getElementById('select-player');
 var squares = document.getElementsByClassName('square');
 var selectWinner = document.getElementById('winner-player');
 var partidas = 0;
+var winX = 0; 
+    var winO=0;
 
 changePlayer('X');
 
@@ -98,12 +100,24 @@ function checked(){
 
 
 function changeWinner(square) {
+    
     winner = square.innerHTML;
     selectWinner.innerHTML= winner;
+    
     if(winner === 'X'){
-        console.log(winner);
-
+        winX++;
+        console.log(winner+"x"+winX);
+        document.getElementById('win-X').innerHTML = winX;
+    }else if(winner === 'O') {
+        winO++;
+        console.log(winner+"o "+winO);
+        document.getElementById('win-O').innerHTML = winO;
+        
+    }else if(winner === null){
+        console.log("Empate")
+       document.getElementById('winner-player').innerHTML= 'Empate';
     }
+    console.log(winner);
 }
 
 function changeColorSquare(sq1,sq2,sq3){

@@ -2,4 +2,7 @@
 
 ## Atividade proposta por Vitor Ruschoni, da DIO.
 
-- Por enquanto, sem diferenciais (08/01/2022);
+- Diferenciais:
+- Alterna jogador que inicia a partida;
+- Marca pontuação para vitória;
+- Informa empate quando não há vencedores.

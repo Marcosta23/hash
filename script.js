@@ -6,6 +6,7 @@ var selectWinner = document.getElementById('winner-player');
 var partidas = 0;
 var winX = 0; 
     var winO=0;
+    var ifGameOver = 0;
 
 changePlayer('X');
 
@@ -16,6 +17,7 @@ if(winner !== null){
 }
 
     var square = document.getElementById(id);
+    ifGameOver++;
      if(square.innerHTML !== '-'){
         return;
     }
@@ -54,47 +56,36 @@ function checked(){
         changeColorSquare(sq1, sq2, sq3);
         changeWinner(sq1);
         return;
-    }
-
-    if (checkSeq(sq4, sq5, sq6)) {
+    }else if (checkSeq(sq4, sq5, sq6)) {
         changeColorSquare(sq4, sq5, sq6);
         changeWinner(sq4);
         return;
-    }
-
-    if (checkSeq(sq7, sq8, sq9)) {
+    }else if (checkSeq(sq7, sq8, sq9)) {
         changeColorSquare(sq7, sq8, sq9);
         changeWinner(sq7);
         return;
-    }
-
-    if (checkSeq(sq1, sq4, sq7)) {
+    }else if (checkSeq(sq1, sq4, sq7)) {
         changeColorSquare(sq1, sq4, sq7);
         changeWinner(sq1);
         return;
-    }
-
-    if (checkSeq(sq2, sq5, sq8)) {
+    }else if (checkSeq(sq2, sq5, sq8)) {
         changeColorSquare(sq2, sq5, sq8);
         changeWinner(sq2);
         return;
-    }
-
-    if (checkSeq(sq3, sq6, sq9)) {
+    }else if (checkSeq(sq3, sq6, sq9)) {
         changeColorSquare(sq3, sq6, sq9);
         changeWinner(sq3);
         return;
-    }
-
-    if (checkSeq(sq1, sq5, sq9)) {
+    }else if (checkSeq(sq1, sq5, sq9)) {
         changeColorSquare(sq1, sq5, sq9);
         changeWinner(sq1);
         return;
-    }
-
-    if (checkSeq(sq3, sq5, sq7)) {
+    }else if (checkSeq(sq3, sq5, sq7)) {
         changeColorSquare(sq3, sq5, sq7);
         changeWinner(sq3);
+    }else if(ifGameOver === 9 && winner !== 'X' && winner !== 'O'){
+        console.log("Empate")
+        document.getElementById('winner-player').innerHTML= 'Empate';
     }
 }
 
@@ -102,7 +93,7 @@ function checked(){
 function changeWinner(square) {
     
     winner = square.innerHTML;
-    selectWinner.innerHTML= winner;
+    selectWinner.innerHTML= 'Vencedor '+ winner;
     
     if(winner === 'X'){
         winX++;
@@ -113,11 +104,7 @@ function changeWinner(square) {
         console.log(winner+"o "+winO);
         document.getElementById('win-O').innerHTML = winO;
         
-    }else if(winner === null){
-        console.log("Empate")
-       document.getElementById('winner-player').innerHTML= 'Empate';
     }
-    console.log(winner);
 }
 
 function changeColorSquare(sq1,sq2,sq3){
